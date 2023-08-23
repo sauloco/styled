@@ -24,7 +24,7 @@ leptos = { git = "https://github.com/leptos-rs/leptos", default-features = false
   "csr",
   "nightly"
 ], version = "0.5.0-beta" }
-leptos_meta = { git = "https://github.com/leptos-rs/leptos", default-features = false, version = "0.4.8", features = ["nightly"] }
+leptos_meta = { git = "https://github.com/leptos-rs/leptos", default-features = false, version = "0.5.0-beta", features = ["nightly"] }
 
 [features]
 ssr = ["leptos/ssr", "leptos_meta/ssr"]
