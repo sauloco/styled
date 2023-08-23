@@ -29,7 +29,7 @@ pub fn view(tokens: TokenStream) -> TokenStream {
                         _ => {
                             abort!(
                                 punct, "To create scoped styles with the view! macro you must put a comma `,` after the value";
-                                help = r#"e.g., view!{cx, styles={my_styles_result}, <div>...</div>}"#
+                                help = r#"e.g., view!{styles={my_styles_result}, <div>...</div>}"#
                             )
                         }
                     }
@@ -94,7 +94,7 @@ pub fn view(tokens: TokenStream) -> TokenStream {
                     }
                 }
                 view! {
-                    cx,
+                    
                     class={class_name.clone()},
                     <Style>{new_style_string.clone()}</Style>
                     #rest_of_tokens
@@ -107,7 +107,7 @@ pub fn view(tokens: TokenStream) -> TokenStream {
         }
         _ => {
             abort_call_site!(
-                "view! macro needs a context and RSX: e.g., view! {{ cx, \
+                "view! macro needs a context and RSX: e.g., view! {{ \
                  <div>...</div> }}"
             )
         }

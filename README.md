@@ -16,9 +16,9 @@ First create a basic `Leptos` component. This will serve as the foundation for t
 
 ```rust
 #[component]
-pub fn MyComponent(cx: Scope) -> impl IntoView{
+pub fn MyComponent() -> impl IntoView{
   view! {
-    cx,
+    
     <div>"hello"</div>
   }
 }
@@ -35,7 +35,7 @@ You can then use the `style` macro to create a `Result` containing your styles. 
 
 ```rust
 #[component]
-pub fn MyComponent(cx: Scope) -> impl IntoView{
+pub fn MyComponent() -> impl IntoView{
   
   let styles = style!(
     div {
@@ -45,7 +45,7 @@ pub fn MyComponent(cx: Scope) -> impl IntoView{
   );
 
   view! {
-    cx,
+    
     <div>"hello"</div>
   }
 }
@@ -55,7 +55,7 @@ Now, let's apply those styles with our `styled::view!` macro!
 
 ```rust
 #[component]
-pub fn MyComponent(cx: Scope) -> impl IntoView {
+pub fn MyComponent() -> impl IntoView {
 
     let styles = style!(
       div {
@@ -65,7 +65,7 @@ pub fn MyComponent(cx: Scope) -> impl IntoView {
     );
 
     styled::view! {
-        cx,
+        
         styles,
         <div>"This text should be red with white text."</div>
     }
@@ -76,7 +76,7 @@ Now we can define another component that also uses the `div` CSS selector but it
 
 ```rust
 #[component]
-pub fn AnotherComponent(cx: Scope) -> impl IntoView {
+pub fn AnotherComponent() -> impl IntoView {
 
     // note were using a plain div selector and it wont clash with MyComponent's div style!
     let styles = style!(
@@ -87,7 +87,7 @@ pub fn AnotherComponent(cx: Scope) -> impl IntoView {
     );
 
     styled::view! {
-        cx,
+        
         styles,
         <div>"This text should be blue with gray text."</div>
     }
@@ -150,13 +150,13 @@ fn get_colors(variant: &Variant) -> ButtonColors {
 }
 
 #[component]
-pub fn Button(cx: Scope, variant: Variant) -> impl IntoView {
+pub fn Button(, variant: Variant) -> impl IntoView {
     let disabled = variant.is(&Variant::DISABLED);
 
     let styles = styles(&variant);
 
     styled::view! {
-        cx,
+        
         styles,
         <button disabled=disabled>"Button"</button>
     }
@@ -374,8 +374,8 @@ impl Theme {
 // /src/app.rs
 
 #[component]
-fn HomePage(cx: Scope) -> impl IntoView {
-    view! { cx,
+fn HomePage() -> impl IntoView {
+    view! { 
             <Button variant={button::Variant::PRIMARY}/>
             <Button variant={button::Variant::SECONDARY}/>
             <Button variant={button::Variant::ALERT}/>
